@@ -35,33 +35,33 @@ ROS es una plataforma que permite desarrollar software para robots y que opera d
 Para comenzar es necesario abrir la utilidad de Terminal.
 <br>
 1. Configurar repositorios de Ubuntu
-<br>
+<br><br>
 A continuación preparamos el sistema para que acepte los paquetes de información de la página del repositorio packages.ros.org ("restricted," "universe," and "multiverse"), para ello usamos la función correspondiente a nuestro sistema.
-
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu precise main" > /etc/apt/sources.list.d/ros-latest.list'
-
-Tras introducir la función anterior, nos pedirá la contraseña de usuario para confirmar que queremos aceptar esta función, y el terminal volverá a modo espera.
 <br>
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu precise main" > /etc/apt/sources.list.d/ros-latest.list'
+<br>
+Tras introducir la función anterior, nos pedirá la contraseña de usuario para confirmar que queremos aceptar esta función, y el terminal volverá a modo espera.
+<br><br>
 2. Configurar repositorios de sources.list
 <br>
 A continuación preparamos el sistema para que acepte los paquetes de información de la página del repositorio packages.ros.org. Para ello usamos la función correspondiente al sistema que tenemos instalado, en nuestro caso Trusty (14.04)
-
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-
-Tras introducir la función anterior, nos pedirá la contraseña de usuario para confirmar que queremos aceptar esta función, y la terminal volverá a modo espera.
 <br>
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+<br>
+Tras introducir la función anterior, nos pedirá la contraseña de usuario para confirmar que queremos aceptar esta función, y la terminal volverá a modo espera.
+<br><br>
 3. Importar la clave del repositorio
 <br>
 Dado que cuando se quiere agregar repositorios extras al fichero fuente a veces apt alega que los paquetes no están firmados ó que no puede encontrar la clave para verificarlos, es necesario importar la clave del repositorio.
-
-sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA116
 <br>
+sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA116
+<br><br>
 4. Instalación del SO
 <br>
 Una vez preparado el sistema para instalar ROS se procede a la instalación del sistema operativo, para ello usamos la función que nos descargará el sistema por completo.
-
+<br>
 sudo apt-get install ros-indigo-desktop-full
-
+<br>
 Con sólo presionar la tecla Enter el programa se pondrá a funcionar descargando todo lo necesario para que el sistema funcione.
 <br>
 5. Inicializar rosdep
