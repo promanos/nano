@@ -108,3 +108,46 @@ Se instaló el WINE desde las librerías oficiales.
 Se descarga de la siguiente página el loquendo para linux
 http://www.mediafire.com/download/t29517xqkhv5zdz/Loquendo+Linux.zip
 Pasos para instalar el loquendo: .....
+
+ENCODER
+<br>
+Se diseñó un encoder de aluminio para cada rueda de 3 mm de espesor y 2 mm en los bordes con 72 perforaciones para el lector óptico.
+<br>
+
+
+ARDUINO
+<br>
+Mega 2560
+<br>
+Con Hummer moto shield
+<br>
+
+
+Opencv
+<br>
+
+OpenCV 3.0.0
+<br>
+Paquetes requeridos
+*	GCC 4.4.x or later
+*	CMake 2.6 or higher
+*	Git
+*	GTK+2.x or higher, including headers (libgtk2.0-dev)
+*	pkg-config
+*	Python 2.6 or later and Numpy 1.5 or later with developer packages (python-dev, python-numpy)
+*	ffmpeg or libav development packages: libavcodec-dev, libavformat-dev, libswscale-dev
+*	[optional] libtbb2 libtbb-dev
+*	[optional] libdc1394 2.x
+*	[optional] libjpeg-dev, libpng-dev, libtiff-dev, libjasper-dev, libdc1394-22-dev
+[compiler] sudo apt-get install build-essential
+[required] sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+[optional] sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+<br>
+1.	Crear directorio temporal
+Se creó un directorio temporal <cmake_binary_dir> donde se alojarán los archivos generados, objetos y archivos binarios.
+<br>
+2.	Ingresar al directorio
+<br>
+3.	Ingresar al directorio
+make
+sudo make install
