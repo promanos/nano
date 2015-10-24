@@ -122,10 +122,6 @@ Mega 2560
 Con Hummer moto shield
 <br>
 
-
-Opencv
-<br>
-
 OpenCV 3.0.0
 <br>
 Paquetes requeridos
@@ -152,3 +148,24 @@ Se creó un directorio temporal <cmake_binary_dir> donde se alojarán los archiv
 3. Ingresar al directorio
 make
 sudo make install
+<br><br>
+KINECT
+<br>
+Kinect es un dispositivo que, conectado a la consola de videojuegos de Microsoft, reconoce los movimientos del cuerpo y la voz para realizar comandos sin necesidad de tener controles. Cuenta con una cámara (lo que lo hace un dispositivo RGB-D, o sea, que puede obtener una imagen en RGB con profundidad), un micrófono y un pivote motorizado. Su uso no está limitado al juego con la consola Xbox360, sino que se puede conectar a una computadora y usarla como cualquier otro sensor.
+<br>
+CONEXIÓN DEL KINECT
+Para hacer funcionar el sensor Kinect en ROS, es necesario instalar los controladores del mismo. Existe una variedad de controladores desarrollados por diversas compañías y entidades no lucrativas. De todos ellos, el que ofrece un mayor control sobre las capacidades del Kinect es el controlador llamado “openni”, por lo tanto, será éste el que se instale en el sistema escribiendo en una terminal:
+<br>
+sudo apt-get install ros-groovie-openni-kinect
+<br>
+Una vez instalado y conectado el Kinect, se verifica que aparezca la información del sensor de profundidad escribiendo en la terminal lo siguiente:
+<br>
+roslaunch openni_camera openni_node.launch
+<br>
+Luego, en una terminal diferente se abre rviz:
+<br>
+rosrun rviz rviz
+<br>
+NOTA: <rviz> es una herramienta de visualización en 3D para ROS, en ella se puede observar todo tipo de tópicos visuales publicados en el master de ROS.
+<br>
+Ya en rviz se ingresa a Global Options y se modifica la opción Fixed Frame a /openni_camera que es el tópico que publica los datos de profundidad. Después, se añade una instancia PointCloud2 y se selecciona el tópico /camera/rgb/points. Ahora debe poder verse una imagen con datos de profundidad con un código  de colores en 3D
