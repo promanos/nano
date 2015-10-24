@@ -91,24 +91,28 @@ Usando el paquete rosserial_arduino, se puede utilizar ROS directamente con el A
 Notas: Para poder utilizar las bibliotecas rosserial se debe incluir en el código #include <ros.h> antes de incluir cualquier otro include; de lo contrario el Arduino IDE no será capaza de localizarlo.
 <br>
 1.	Instalación de la estación de trabajo ROS
+<br>
 Para instalar rosserial para Arduino ejecutamos:
 sudo apt-get install ros-indigo-rosserial-arduino
 sudo apt-get install ros-indigo-rosserial
 <br>
 2.	Instalación de ros_lib en el ambiente Arduino
+<br>
 Con la instalación del paso anterior se creó ros_lib el cual debe ser copiado en el ambiente de desarrollo de Arduino para permitir que los programas de Arduino puedan interactuar con ROS.
 
 cd <sketchbook>/libraries
+<br>
 rm -rf ros_lib
+<br>
 rosrun rosserial_arduino make_libraries.py .
 
-
+<br>
 LOQUENDO
 Se instaló el WINE desde las librerías oficiales.
 Se descarga de la siguiente página el loquendo para linux
 http://www.mediafire.com/download/t29517xqkhv5zdz/Loquendo+Linux.zip
 Pasos para instalar el loquendo: .....
-
+<br>
 ENCODER
 <br>
 Se diseñó un encoder de aluminio para cada rueda de 3 mm de espesor y 2 mm en los bordes con 72 perforaciones para el lector óptico.
