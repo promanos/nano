@@ -7,6 +7,9 @@
 * Code *pending
 * Wiki *pending
 * Architecture Diagram *pending
+<br><br>
+https://realpython.com/blog/python/face-detection-in-python-using-a-webcam/
+<br><br>
 
 LINUX
 <br>
