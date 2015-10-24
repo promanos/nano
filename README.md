@@ -142,12 +142,13 @@ Paquetes requeridos
 [compiler] sudo apt-get install build-essential
 [required] sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
 [optional] sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+
 <br>
-1.	Crear directorio temporal
+1. Crear directorio temporal
 Se creó un directorio temporal <cmake_binary_dir> donde se alojarán los archivos generados, objetos y archivos binarios.
 <br>
-2.	Ingresar al directorio
+2. Ingresar al directorio
 <br>
-3.	Ingresar al directorio
+3. Ingresar al directorio
 make
 sudo make install
