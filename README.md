@@ -182,3 +182,5 @@ rosrun rviz rviz
 NOTA: <rviz> es una herramienta de visualización en 3D para ROS, en ella se puede observar todo tipo de tópicos visuales publicados en el master de ROS.
 <br>
 Ya en rviz se ingresa a Global Options y se modifica la opción Fixed Frame a /openni_camera que es el tópico que publica los datos de profundidad. Después, se añade una instancia PointCloud2 y se selecciona el tópico /camera/rgb/points. Ahora debe poder verse una imagen con datos de profundidad con un código  de colores en 3D
+<br>
+http://linuxg.net/install-guvcview-on-ubuntu/
