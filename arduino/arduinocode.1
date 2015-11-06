@@ -1,0 +1,154 @@
+/*  
+ *  Codigo Arduino choriado por Alejandro
+ *  en colaboraciòn con el Dr Pappolla
+ */
+
+/*
+motorGo(0, CW, 50): el primer termino hace referencia al motor (0->1ro y 1->2do); el segundo el sentido (CW-> clockwise y CCW-> anticlockwise); y el otro la velocidad (de 0 a 255)
+*/
+
+#define BRAKEVCC 0
+#define CW 1
+#define CCW 2
+#define BRAKEGND 3
+#define CS_THRESHOLD 15   // Definition of safety current (Check: "1.3 Monster Shield Example").
+
+
+int inApin[2] = {7, 4}; // INA: Clockwise Direction Motor0 and Motor1 (Check:"1.2 Hardware Monster Motor Shield").
+int inBpin[2] = {8, 9}; // INB: Counterlockwise Direction Motor0 and Motor1 (Check: "1.2 Hardware Monster Motor Shield").
+int pwmpin[2] = {5, 6};            // PWM's input
+int cspin[2] = {2, 3};              // Current's sensor input
+
+int statpin = 13;
+int i=40;
+
+//Variables del sensor (ON1105):
+boolean anterior = 0;    
+boolean actual = 0; 
+int contador = 0;  
+
+
+void setup() {
+  Serial.begin(9600);              // Initiates the serial to do the monitoring 
+  pinMode(statpin, OUTPUT);
+  for (int i=0; i<2; i++) {
+    pinMode(inApin[i], OUTPUT);
+    pinMode(inBpin[i], OUTPUT);
+    pinMode(pwmpin[i], OUTPUT);
+  }
+  for (int i=0; i<2; i++) {
+    digitalWrite(inApin[i], LOW);
+    digitalWrite(inBpin[i], LOW);
+  }
+  
+  pinMode(2,INPUT);  //Inicializo el pin 2 para lectura del sensor
+
+
+/*  
+ *  Esto lo hacemos en el loop, lo pusimos aca para probar
+ *  ojo que no frena si se traba:
+ */
+    motorGo(0, CW, 50); // a 70 es 7V, queda en 50 equivale a 5.5V (en vacio)
+}
+
+void loop() {
+  /*
+  // Funcion que va incrementando la velocidad del motor
+  while(i<70) //max 255
+      {
+      motorGo(0, CW, i);   // Increase the speed of the motor, according to the value of i is increasing       
+      delay(50);                         
+      i++;                          
+      if (analogRead(cspin[0]) > CS_THRESHOLD) // Si el motor se traba, apagar y...
+        { 
+          motorOff(0); 
+          Serial.println("ACM1PT"); 
+          Serial.println(analogRead(cspin[0]));
+        }
+      Serial.println(analogRead(cspin[0]));
+      digitalWrite(statpin, LOW);
+      }
+   
+  //despues del loop:
+  i=1;
+  
+  //=========
+  
+  //Keep the acceleration while the motor not locks
+  
+  while(i!=0)
+      {                                      
+      motorGo(0, CW, 0);       // Keep the PWM in 255 (Max Speed) 
+      if (analogRead(cspin[0]) > CS_THRESHOLD)     // Si el motor se traba, apagar y...  
+          {     // ...Resets the process of increasing the PWM
+           motorOff(0); 
+  
+          }
+      }
+  
+  //========
+  */
+
+
+//============Consultar sensor==============
+actual = debounce(anterior); 
+  
+if ( anterior == 0 && actual == 1) 
+{
+   contador++;              
+   
+   delay (100);          
+   Serial.println(contador);
+}
+anterior = actual; 
+//=========Fin Consultar sensor=============
+
+
+}
+
+
+void motorOff(int motor)     //Apaga el motor (cuando se traba)
+{
+  for (int i=0; i<2; i++) {
+    digitalWrite(inApin[i], LOW);
+    digitalWrite(inBpin[i], LOW);
+  }
+  analogWrite(pwmpin[motor], 0);
+  i=0;
+  digitalWrite(13, HIGH);
+  Serial.println("Motor Locked");
+  delay(1000);
+}
+
+
+void motorGo(uint8_t motor, uint8_t direct, uint8_t pwm)  //Function that controls the variables: motor(0 ou 1), direction (cw ou ccw) e pwm (entra 0 e 255);
+{
+  if (motor <= 1) {
+    if (direct <=4){
+      if (direct <=1)
+        digitalWrite(inApin[motor], HIGH);
+      else
+        digitalWrite(inApin[motor], LOW);
+      
+      if ((direct==0)||(direct==2))
+        digitalWrite(inBpin[motor], HIGH);
+      else
+        digitalWrite(inBpin[motor], LOW);
+      
+      analogWrite(pwmpin[motor], pwm);
+    }
+  }
+}
+
+// Consultar valor actual del sensor:
+boolean debounce(boolean dato_anterior) 
+ {
+
+   boolean dato_actual = digitalRead(2);
+   if (dato_anterior != dato_actual)
+   {
+     delay(10);
+     dato_actual = digitalRead(2);
+   }
+   return dato_actual;
+ }
