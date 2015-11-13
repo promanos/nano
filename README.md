@@ -192,3 +192,17 @@ Guvcview
 versión 2.0.2
 <br>
 Guvcview is an open source application, developed in GTK+, which enables the users to record videos or take photos via the webcam, set up the video and audio codecs to be used, or set the audio input.
+Se debe instalar Guvcview y los paquetes relacionados. Para ello, será necesario seguir los siguientes pasos:
+<br>
+1. Agregar el repositorio PPA
+<br>
+$ sudo add-apt-repository ppa:pj-assis/testing
+<br>
+2. Actualizar el repositorio local 
+<br>
+$ sudo apt-get update
+<br>
+3. Instalaci[on del guvcview
+<br>
+$ sudo apt-get install guvcview
+<br>
