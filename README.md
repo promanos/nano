@@ -33,9 +33,9 @@ Sistema: ROS Indigo
 ROS es una plataforma que permite desarrollar software para robots y que opera de manera parecida a un sistema operativo.
 <br>
 Para comenzar es necesario abrir la utilidad de Terminal.
-<br>
-1. Configurar repositorios de Ubuntu
 <br><br>
+1. Configurar repositorios de Ubuntu
+<br>
 A continuación preparamos el sistema para que acepte los paquetes de información de la página del repositorio packages.ros.org ("restricted," "universe," and "multiverse"), para ello usamos la función correspondiente a nuestro sistema.
 <br>
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu precise main" > /etc/apt/sources.list.d/ros-latest.list'
@@ -63,7 +63,7 @@ Una vez preparado el sistema para instalar ROS se procede a la instalación del 
 sudo apt-get install ros-indigo-desktop-full
 <br>
 Con sólo presionar la tecla Enter el programa se pondrá a funcionar descargando todo lo necesario para que el sistema funcione.
-<br>
+<br><br>
 5. Inicializar rosdep
 <br>
 Antes de poder utilizar ROS, es necesario inicializar rosdep. Rosdep permite instalar fácilmente las dependencias del sistema fuente que se quiere compilar y que se requieren para ejecutar algunos componentes básicos en ROS.
@@ -73,14 +73,14 @@ Y luego la función:
 rosdep update
 
 Luego de esto, ya tenemos ROS instalado en nuestro sistema Ubuntu y ahora solo nos quedaría añadir un par de configuraciones más que son recomendables.
-<br>
+<br><br>
 6. Configuración del ambiente
 <br>
 La primera configuración recomendada es para que las variables de entorno que creemos se añadan automáticamente a nuestra sesión, para ello usamos la función:
 echo “source /opt/ros/groovy/setup.bash” >> ~/.bashrc
 Y luego:
 source ~/.bashrc
-<br>
+<br><br>
 7. Obtener rosinstall
 <br>
 También es conveniente instalar rosinstall, que es un añadido que nos permitirá descargarnos fácilmente el código fuente de muchos añadidos con solo un comando, para ello usamos el comando:
@@ -90,20 +90,20 @@ sudo apt-get install python-rosinstall
 Tras esto ya tendremos nuestro sistema listo para trabajar con él.
 
 Referencia: http://wiki.ros.org/indigo/Installation/Ubuntu
-<br>
+<br><br>
 ARDUINO IDE
 <br>
 A continuación de detallan los pasos para cómo configurar el IDE de Arduino para utilizar rosserial.
 Usando el paquete rosserial_arduino, se puede utilizar ROS directamente con el Arduino IDE. rosserial proporciona un protocolo de comunicación ROS que funciona sobre UART del Arduino.
 <br>
 Notas: Para poder utilizar las bibliotecas rosserial se debe incluir en el código #include <ros.h> antes de incluir cualquier otro include; de lo contrario el Arduino IDE no será capaza de localizarlo.
-<br>
+<br><br>
 1.	Instalación de la estación de trabajo ROS
 <br>
 Para instalar rosserial para Arduino ejecutamos:
 sudo apt-get install ros-indigo-rosserial-arduino
 sudo apt-get install ros-indigo-rosserial
-<br>
+<br><br>
 2.	Instalación de ros_lib en el ambiente Arduino
 <br>
 Con la instalación del paso anterior se creó ros_lib el cual debe ser copiado en el ambiente de desarrollo de Arduino para permitir que los programas de Arduino puedan interactuar con ROS.
@@ -135,9 +135,9 @@ Mega 2560
 Con Hummer moto shield
 <br>
 
-OpenCV 3.4.11
+OpenCV 2.4.11
 <br>
-Paquetes requeridos
+Paquetes requeridos:
 *	GCC 4.4.x or later
 *	CMake 2.6 or higher
 *	Git
@@ -148,39 +148,47 @@ Paquetes requeridos
 *	[optional] libtbb2 libtbb-dev
 *	[optional] libdc1394 2.x
 *	[optional] libjpeg-dev, libpng-dev, libtiff-dev, libjasper-dev, libdc1394-22-dev
+<br>
 [compiler] sudo apt-get install build-essential
+<br>
 [required] sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+<br>
 [optional] sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
-
 <br>
 1. Crear directorio temporal
 Se creó un directorio temporal <cmake_binary_dir> donde se alojarán los archivos generados, objetos y archivos binarios.
-<br>
+<br><br>
 2. Ingresar al directorio
+<br><br>
+3. Ingresar al directorio make
 <br>
-3. Ingresar al directorio
-make
 sudo make install
 <br><br>
 KINECT
 <br>
 Kinect es un dispositivo que, conectado a la consola de videojuegos de Microsoft, reconoce los movimientos del cuerpo y la voz para realizar comandos sin necesidad de tener controles. Cuenta con una cámara (lo que lo hace un dispositivo RGB-D, o sea, que puede obtener una imagen en RGB con profundidad), un micrófono y un pivote motorizado. Su uso no está limitado al juego con la consola Xbox360, sino que se puede conectar a una computadora y usarla como cualquier otro sensor.
 <br>
-CONEXIÓN DEL KINECT
+CONEXIÓN DEL KINECT<br>
 Para hacer funcionar el sensor Kinect en ROS, es necesario instalar los controladores del mismo. Existe una variedad de controladores desarrollados por diversas compañías y entidades no lucrativas. De todos ellos, el que ofrece un mayor control sobre las capacidades del Kinect es el controlador llamado “openni”, por lo tanto, será éste el que se instale en el sistema escribiendo en una terminal:
-<br>
+<br><br>
 sudo apt-get install ros-groovie-openni-kinect
-<br>
+<br><br>
 Una vez instalado y conectado el Kinect, se verifica que aparezca la información del sensor de profundidad escribiendo en la terminal lo siguiente:
-<br>
+<br><br>
 roslaunch openni_camera openni_node.launch
-<br>
+<br><br>
 Luego, en una terminal diferente se abre rviz:
-<br>
+<br><br>
 rosrun rviz rviz
-<br>
+<br><br>
 NOTA: <rviz> es una herramienta de visualización en 3D para ROS, en ella se puede observar todo tipo de tópicos visuales publicados en el master de ROS.
-<br>
+<br><br>
 Ya en rviz se ingresa a Global Options y se modifica la opción Fixed Frame a /openni_camera que es el tópico que publica los datos de profundidad. Después, se añade una instancia PointCloud2 y se selecciona el tópico /camera/rgb/points. Ahora debe poder verse una imagen con datos de profundidad con un código  de colores en 3D
-<br>
+<br><br>
 http://linuxg.net/install-guvcview-on-ubuntu/
+
+Guvcview
+<br>
+versión 2.0.2
+<br>
+Guvcview is an open source application, developed in GTK+, which enables the users to record videos or take photos via the webcam, set up the video and audio codecs to be used, or set the audio input.
