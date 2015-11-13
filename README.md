@@ -135,7 +135,7 @@ Mega 2560
 Con Hummer moto shield
 <br>
 
-OpenCV 3.0.0
+OpenCV 3.4.11
 <br>
 Paquetes requeridos
 *	GCC 4.4.x or later
