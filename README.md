@@ -120,7 +120,15 @@ LOQUENDO
 Se instaló el WINE desde las librerías oficiales.
 Se descarga de la siguiente página el loquendo para linux
 http://www.mediafire.com/download/t29517xqkhv5zdz/Loquendo+Linux.zip
-Pasos para instalar el loquendo: .....
+Pasos para instalar el loquendo:
+<br>
+1. Descargar de la siguiente página el loquendo para linux
+http://www.mediafire.com/download/t29517xqkhv5zdz/Loquendo+Linux.zip
+(archivo subido al google drive)
+<br>
+2. Ejecutar el archivo llamado Ejecutame y seguir los pasos de instalacion.
+<br>
+3. Copiar los archivos LoqTTS6.dll y LoqTTS6_util.dll y pegarlo en Program Files \ Loquendo \ LTTS para dejar loquendo instalado y crackeado
 <br>
 
 ENCODER
@@ -210,4 +218,3 @@ $ sudo apt-get install guvcview
 # We need to clone the following version of the code due to an error with gstream
 https://github.com/Itseez/opencv/tree/2.4.12.3
 <br>
-fin
