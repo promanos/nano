@@ -7,9 +7,7 @@
 * Code *pending
 * Wiki *pending
 * Architecture Diagram *pending
-<br><br>
-https://realpython.com/blog/python/face-detection-in-python-using-a-webcam/
-<br><br>
+
 
 LINUX
 <br>
@@ -213,8 +211,4 @@ $ sudo apt-get update
 3. Instalaci[on del guvcview
 <br>
 $ sudo apt-get install guvcview
-<br>
-<br>
-# We need to clone the following version of the code due to an error with gstream
-https://github.com/Itseez/opencv/tree/2.4.12.3
 <br>
