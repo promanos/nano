@@ -1,0 +1,42 @@
+void setup() {
+pinMode(13, OUTPUT); //statpin
+
+      pinMode(7, OUTPUT); // Clockwise Direction Motor0
+      pinMode(8, OUTPUT); // Counterlockwise Direction Motor0
+      
+      pinMode(4, OUTPUT); // Clockwise Direction Motor1
+      pinMode(9, OUTPUT); // Counterlockwise Direction Motor1
+      
+      pinMode(5, OUTPUT); // PWM's input Motor0
+      pinMode(6, OUTPUT); // PWM's input Motor1
+
+      //apago los pine
+      digitalWrite(7, LOW);
+      digitalWrite(8, LOW);
+      digitalWrite(4, LOW);
+      digitalWrite(9, LOW);
+}
+
+void loop() {
+// Motor0 es el Motor Derecho  
+// Motor1 es el Motor Izquierdo  
+
+//Motores Adelante
+//digitalWrite(4, HIGH); // sentido Clockwise Motor0
+//digitalWrite(7, HIGH); // sentido Clockwise Motor1
+//Motores Atras
+//digitalWrite(8, HIGH); // sentido Counterlockwise Motor0
+//digitalWrite(9, HIGH); // sentido Counterlockwise Motor1
+//Motores Izquierda
+//digitalWrite(4, HIGH); // sentido Clockwise Motor0
+//digitalWrite(8, HIGH); // sentido Counterlockwise Motor1
+//Motores Derecha
+//digitalWrite(7, HIGH); // sentido Clockwise Motor0
+//digitalWrite(9, HIGH); // sentido Counterlockwise Motor1
+
+digitalWrite(4, HIGH); // sentido Clockwise Motor0
+digitalWrite(8, HIGH); // sentido Counterlockwise Motor1
+
+analogWrite(5, 40); //hasta 255
+analogWrite(6, 40); //hasta 255
+}
